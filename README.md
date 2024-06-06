@@ -5,3 +5,6 @@ Repositório dedicado a criação do meu primeiro jogo 2D com a biblioteca Ebite
 
 ### Biblioteca utilizada:
 A Ebitengine é especifica para jogos 2D no Go.
+
+
+# EM CONSTRUÇÃO...
