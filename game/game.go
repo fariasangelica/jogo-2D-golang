@@ -4,6 +4,7 @@ import "github.com/hajimehoshi/ebiten/v2"
 
 type Game struct {
 	player *Player
+	lasers []*Laser
 }
 
 func NewGame() *Game {
@@ -17,6 +18,7 @@ func NewGame() *Game {
 
 // Responsável por atualizar a lógica do jogo
 func (g *Game) Update() error {
+	g.player.Update()
 	return nil
 }
 
@@ -30,4 +32,12 @@ func (g *Game) Draw(screen *ebiten.Image) {
 // Tamanho da tela
 func (g *Game) Layout(outsideWidth, outsideHeight int) (int, int) {
 	return screenWidth, screenHeight
+}
+
+func (g *Game) AddLasers(laser *Laser) {
+	g.lasers = append(g.lasers, laser)
+}
+
+func (f * Game) AddLasers(laser *Laser) {
+	g.lasers = append(g.lasers, laser)
 }
