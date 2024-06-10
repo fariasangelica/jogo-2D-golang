@@ -1,6 +1,10 @@
 package game
 
-import "github.com/hajimehoshi/ebiten/v2"
+import (
+	"jogo-2d-golang/assets"
+
+	"github.com/hajimehoshi/ebiten/v2"
+)
 
 type Laser struct {
 	image *ebiten.Image
@@ -15,7 +19,7 @@ func NewLaser(position Vector) *Laser {
 	halfW := float64(bounds.Dx()) / 2 //Metade da largura da imagem do laser
 	halfH := float64(bounds.Dy()) /2 // Metade da altura
 
-	position -= halfW
+	position.X -= halfW
 	position.Y -= halfH
 
 

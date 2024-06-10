@@ -1,15 +1,21 @@
 package game
 
-import "github.com/hajimehoshi/ebiten/v2"
+import (
+	"jogo-2d-golang/assets"
+
+	"github.com/hajimehoshi/ebiten/v2"
+)
 
 
 
 type Player struct {
 	image *ebiten.Image
 	position Vector
+	game    *Game
+	laserLoadingTimer *Timer
 }
 
-func NewPlayer() *Player {
+func NewPlayer(game *Game) *Player {
 	image := assets.PlayerSprite
 
 	bounds := image.Bounds()
@@ -23,7 +29,9 @@ func NewPlayer() *Player {
 
 	return &Player{
 		image: image,
+		game:  game,
 		position: position,
+		laserLoadingTimer: NewTimer(12),
 	}
 }
 
@@ -37,7 +45,10 @@ func (p *Player) Update() {
 		p.position.X += speed
 	}
 
-	if ebiten.IsKeyPressed(ebiten.KeySpace) {
+	p.laserLoadingTimer.Update()
+
+	if ebiten.IsKeyPressed(ebiten.KeySpace) && p.laserLoadingTimer.IsReady() {
+		p.laserLoadingTimer.Reset()
 
 		bounds := p.image.Bounds()
 		halfW := float64(bounds.Dx()) / 2
@@ -49,6 +60,7 @@ func (p *Player) Update() {
 		}
 
 		laser := NewLaser(spawnPos)
+		p.game.AddLasers(laser)
 	}
 
 }
