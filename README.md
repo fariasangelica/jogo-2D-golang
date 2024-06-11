@@ -14,7 +14,7 @@ Repositório dedicado a criação do meu primeiro jogo 2D com a biblioteca Ebite
 ## A Interface do jogo:
 ![alt text](image-1.png)
 
-### Referências e artigos:
+### Referências e documentações:
 [_Como criar um jogo do zero com golang_](https://www.youtube.com/watch?v=BEe4MHDjAyU&t=40s)
 
 [_Documentação da biblioteca Ebitengine_](https://ebitengine.org/en/documents/)
