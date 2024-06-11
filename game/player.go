@@ -74,3 +74,12 @@ func (p *Player) Draw(screen *ebiten.Image) {
 	screen.DrawImage(p.image, op)
 	
 }
+
+func (p *Player) Collider() Rect {
+	bounds := p.image.Bounds()
+
+	return NewReact(p.position.X, 
+		p.position.Y,
+		float64(bounds.Dx()),
+		float64(bounds.Dx()))
+}

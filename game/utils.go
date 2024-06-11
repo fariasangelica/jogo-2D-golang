@@ -14,10 +14,10 @@ type Vector struct {
 
 // imagem
 type Rect struct {
-	X: float64
-	Y: float64
-	Width: float64
-	Height: float64
+	X float64
+	Y float64
+	Width float64
+	Height float64
 }
 
 func NewReact(x, y, width, height float64) Rect {
@@ -30,7 +30,7 @@ func NewReact(x, y, width, height float64) Rect {
 	}
 }
 
-func (r React) Intersects(other Rect) bool {
+func (r Rect) Intersects(other Rect) bool {
 	return r.X <= other.maxX() &&
 	   other.X <= r.maxX() &&
 	   r.Y <= other.maxY() &&
